@@ -6,6 +6,9 @@ import { Timer } from './Timer.js';
 import { ResetButton } from './ResetButton.js';
 import { Modal } from './Modal.js';
 
+//instance import
+import { sound } from './Sound.js';
+
 //const import
 import {
   CLOSE_BUTTON_TEXT,
@@ -294,6 +297,7 @@ class Game extends UI{
     
     //lose game condition
     if (cell.isMine) {
+      sound.failure.play();
       this.#endGame(false);
     }
     this.#setCellValue(cell);
@@ -310,6 +314,8 @@ class Game extends UI{
   }
   //method of reveal cell
   #setCellValue(cell) {
+    if (!cell.isMine) sound.succes.play(); //sound effect on click
+    
     let minesCount = 0;
 
     //firs click protection

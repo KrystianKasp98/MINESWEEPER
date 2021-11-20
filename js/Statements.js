@@ -21,4 +21,7 @@ export const CELL_REVEALED_CSS = 'border--revealed';
 
 //css :root
 export const VARIABLE_CSS = '--cells-in-row';
+//sounds url
+export const SUCCES_URL = './sounds/yes.wav';
+export const FAILURE_URL = './sounds/no.wav';
 
