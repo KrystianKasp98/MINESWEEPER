@@ -1,0 +1,218 @@
+:root{
+  --primary-color: #c0c0c0;
+  --primary-color--dark: #808080;
+  --alarm-color: #f80000;
+
+  /* dependence between color and mines within range of the cell */
+  --info-one-color: #0200fc;
+  --info-two-color: #017e00;
+  --info-three-color: #ff0000;
+  --info-four-color: #010080;
+  --info-five-color: #7f0300;
+  --info-six-color: #008080;
+  --info-seven-color: #000;
+  --info-eight-color: #808080;
+
+  --cell-size: 4rem;
+  --game-padding: 1.5rem;
+  --border-width: .3rem;
+  /* js property */
+  --cells-in-row: 8;
+
+  --game-max-width: calc(var(--cell-size) * var(--cells-in-row) + calc(2 * var(--game-padding)) + calc(2 * var(--border-width)));
+}
+
+@font-face {
+  font-family: DIGITALDREAM;
+  src: url('../assets/DIGITALDREAM.ttf');
+}
+
+/* reset */
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body{
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
+  background-color: #444;
+  user-select: none;
+}
+/* set unit 1 rem to 10px */
+html{
+  font-size: 62.5%;
+}
+/* wrapper */
+.game{
+  background-color: var(--primary-color);
+  padding: var(--game-padding);
+  max-width: var(--game-max-width);
+  margin: 0 auto;
+}
+/*---------------------------header-------------------------------------------*/
+/* wrapper for counters */
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+}
+/* counters */
+.header__counter{
+  background-color: #000;
+  color: var(--alarm-color);
+  padding: .7rem;
+  font-family: DIGITALDREAM;
+  font-size: 3.2rem;
+  min-width: 9rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+/* emoji(reset) button */
+.header__reset{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  background-color: var(--primary-color);
+}
+/*emoji svg*/
+.header__button{
+  width: 4.8rem;
+  height: 4.8rem;
+}
+/*------------------------------------Game Board--------------------------------*/
+/* wrapper of board */
+.game__board{
+  display: flex;
+  flex-wrap: wrap;
+}
+/* cell field */
+.cell{
+  width: var(--cell-size);
+  height: var(--cell-size);
+  cursor: pointer;
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+/*--------------------------------------Panel-----------------------------------*/
+/* h1 select difficulty */
+.panel__header{
+  text-align: center;
+  font-size: 2.6rem;
+}
+/* wrapper of difficulty buttons*/
+.panel__buttons{
+  display: flex;
+}
+/* difficulty button */
+.button{
+  flex: 1;
+  padding: 2.5rem 0;
+  cursor: pointer;
+  font-size: 2.4rem;
+}
+/*------------------------------------Modal---------------------------------------*/
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+/* content w modalu */
+.modal__content{
+  width: 50vw;
+  height: 50vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+/* modal statement */
+.modal__text{
+  font-size: 4.8rem;
+  text-align: center;
+}
+/* play again button */
+.modal__button{
+  cursor: pointer;
+  background-color: transparent;
+  color: #000;
+  border: 0.3rem solid black;
+  padding: 1rem 2rem;
+  font-size: 2.4rem;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color .2s ease-in, color .2s ease-in;
+}
+.modal__button:hover{
+  background-color: #000;
+  color: #fff;
+}
+/* hiding modal */
+.hide{
+  visibility: hidden;
+}
+/*----------------------------------------other class-----------------------------*/
+.border{
+  border: var(--border-width) solid;
+}
+.border--convex{
+  border-color: var(--primary-color--dark) #fff #fff var(--primary-color--dark);
+}
+.border--concave{
+  border-color:#fff var(--primary-color--dark) var(--primary-color--dark) #fff;
+}
+.border--revealed{
+  border-width: .1rem;
+  border-color: var(--primary-color--dark);
+}
+.cell--is-flag{
+  background-image: url('../assets/flag.svg');
+}
+.cell--is-mine{
+  background-image: url('../assets/bomb.svg');
+  background-color: var(--alarm-color);
+}
+/* text color of cell*/
+.cell-info-1 {
+  color: var(--info-one-color);
+}
+.cell-info-2 {
+  color: var(--info-two-color);
+}
+.cell-info-3 {
+  color: var(--info-three-color);
+}
+.cell-info-4 {
+  color: var(--info-four-color);
+}
+.cell-info-5 {
+  color: var(--info-five-color);
+}
+.cell-info-6 {
+  color: var(--info-six-color);
+}
+.cell-info-7 {
+  color: var(--info-seven-color);
+}
+.cell-info-8 {
+  color: var(--info-eight-color);
+}

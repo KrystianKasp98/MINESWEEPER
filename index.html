@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+  <!-- style css -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- google font lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- game wrapper -->
+  <main class="game">
+    <!----------------------------------header--------------------------------------->
+    <header class="header border border--convex">
+      <!-- flag counter -->
+      <article class="header__counter" data-counter>
+        0
+      </article>
+      <button class="header__reset border--concave" data-button-reset>
+        <!-- svg sprites which references to emoji neutral-->
+        <svg class="header__button">
+          <use xlink:href='./assets/sprite.svg#neutral'></use>
+        </svg>
+      </button>
+      <!-- timer -->
+      <article class="header__counter" data-timer>
+        0
+      </article>
+
+    </header>
+    <!------------------------Game board------------------------------------->
+    <article class="game__board border border--convex" data-board>
+      <!-- cell zone -->
+
+    </article>
+    <!----------------------------------Panel--------------------------------------->
+    <article class="game__panel border border--convex">
+      <header class="panel__header">
+        <h1 class="panel__heading">Select difficulty</h1>
+      </header>
+      <!-- difficulty buttons -->
+      <section class="panel__buttons">
+        <!-- default level -->
+        <button class="button border border--convex" data-button-easy data-button-border>Easy</button>
+        <button class="button border border--concave" data-button-normal data-button-border>Normal</button>
+        <button class="button border border--concave" data-button-expert data-button-border>Expert</button>
+      </section>
+    </article>
+
+    <!-------------------------------------Modal-------------------------------->
+    <!-- modal appears after won or lost game -->
+    <article class="modal hide" data-modal>
+      <section class="modal__content">
+        <!-- text in modalu depending on result -->
+        <h2 class="modal__text" data-modal-header>You won!</h2>
+        <button class="modal__button" data-modal-button>Play again</button>
+      </section>
+    </article>
+
+  </main>
+
+
+
+  <!-- module js -->
+  <script type="module" src="./js/game.js"></script>
+</body>
+
+</html>
